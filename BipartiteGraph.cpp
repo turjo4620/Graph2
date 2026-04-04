@@ -51,12 +51,14 @@ public:
 int main(){
     int V, E;
     cin>>V>>E;
+    bool ischild[26];
     Graph g(V);
 
     for(int i = 0; i < E; i++){
         int a , b;
         cin>>a>>b;
         g.addEdge(a, b);
+        ischild[b] = true;
     }
 
     vector<int>color(V, -1);
