@@ -24,6 +24,9 @@ public:
 
         while(!q.empty()){
             int size = q.size();
+
+            // if wanna print the size of the level, node count per each level
+            cout<<size << endl;
             
             for(int i = 0; i < size ; i++){
                 int node = q.front();
