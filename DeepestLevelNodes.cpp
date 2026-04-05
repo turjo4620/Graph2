@@ -28,6 +28,7 @@ public:
 
         int level = 1;
         vector<pair<int , int>>deepest;
+        int max_level = 0;
 
         while(!q.empty()){
             int size = q.size();
@@ -44,10 +45,16 @@ public:
             }
 
             // store all leaf nodes at current level
-            deepest.clear();
             for(int node : current_level){
                 if(adj[node].size() == 0){
-                    deepest.push_back({node , level});
+                    if(level > max_level){
+                        max_level = level; 
+                        deepest.clear();
+                        deepest.push_back({node, level});
+                    }
+                    else if(level == max_level){
+                        deepest.push_back({node, level});
+                    }
                 }
             }
 
